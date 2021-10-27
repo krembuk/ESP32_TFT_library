@@ -13,9 +13,10 @@
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include <esp_spiffs.h>
+#include <esp_log.h>
 
 #include "tft.h"
-#include "spiffs_vfs.h"
 
 #ifdef CONFIG_EXAMPLE_USE_WIFI
 
@@ -44,6 +45,36 @@ static const char *file_fonts[3] = {"/spiffs/fonts/DotMatrix_M.fon", "/spiffs/fo
 
 #define GDEMO_TIME 1000
 #define GDEMO_INFO_TIME 5000
+
+#define SPIFFS_BASE_PATH "/spiffs"
+int spiffs_is_mounted = 0;
+
+//==========================
+void vfs_spiffs_register() {
+
+	if (spiffs_is_mounted) return;
+
+
+    esp_vfs_spiffs_conf_t conf = {
+      .base_path = "/spiffs",
+      .partition_label = NULL,
+      .max_files = 5,
+      .format_if_mount_failed = true
+    };
+
+    ESP_LOGI("[SPIFFS]", "Registering SPIFFS file system");
+    // Use settings defined above to initialize and mount SPIFFS filesystem.
+    // Note: esp_vfs_spiffs_register is an all-in-one convenience function.
+    esp_err_t res = esp_vfs_spiffs_register(&conf);
+
+    if (res != ESP_OK) {
+        ESP_LOGE("[SPIFFS]", "Error, SPIFFS file system not registered");
+        return;
+    }
+	spiffs_is_mounted = 1;
+
+}
+
 
 //==================================================================================
 #ifdef CONFIG_EXAMPLE_USE_WIFI

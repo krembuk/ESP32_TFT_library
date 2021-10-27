@@ -1,18 +1,20 @@
 {
-    "version": "0.1.0",
+    "version": "2.0.0",
     "command": "bash",
-    "args": ["-c"],
-    "isShellCommand": true,
-    "showOutput": "always",
-    "suppressTaskName": true,
+    "args": [
+        "-c"
+    ],
     "options": {
         "cwd": "${workspaceRoot}"
     },
     "tasks": [
         {
-            "taskName": "build app",
-            "args": ["./BUILD all"],
-            "isBuildCommand": false,
+            "label": "build app",
+            "type": "shell",
+            "args": [
+                "-c",
+                "./BUILD all"
+            ],
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": "absolute",
@@ -27,9 +29,12 @@
             }
         },
         {
-            "taskName": "build app -j8",
-            "args": ["./BUILD -j8 all"],
-            "isBuildCommand": true,
+            "label": "build app -j8",
+            "type": "shell",
+            "args": [
+                "-c",
+                "./BUILD -j8 all"
+            ],
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": "absolute",
@@ -41,29 +46,49 @@
                     "severity": 4,
                     "message": 5
                 }
+            },
+            "group": {
+                "_id": "build",
+                "isDefault": false
             }
         },
         {
-            "taskName": "clean app",
-            "args": ["./BUILD clean"]
+            "label": "clean app",
+            "type": "shell",
+            "args": [
+                "-c",
+                "./BUILD clean"
+            ],
+            "problemMatcher": []
         },
         {
-            "taskName": "flash app",
-            "args": ["make app-flash"]
+            "label": "flash app",
+            "type": "shell",
+            "args": [
+                "-c",
+                "make app-flash"
+            ],
+            "problemMatcher": []
         },
         {
-            "taskName": "monitor",
+            "label": "monitor",
+            "type": "shell",
             "command": "gnome-terminal",
-            "args": ["-e","make monitor"],
-            "isShellCommand": false,
-            "showOutput": "never"
+            "args": [
+                "-e",
+                "make monitor"
+            ],
+            "problemMatcher": []
         },
         {
-            "taskName": "menuconfig",
+            "label": "menuconfig",
+            "type": "shell",
             "command": "gnome-terminal",
-            "args": ["-e","make menuconfig"],
-            "isShellCommand": false,
-            "showOutput": "never"
+            "args": [
+                "-e",
+                "make menuconfig"
+            ],
+            "problemMatcher": []
         }
     ]
 }

@@ -13,10 +13,10 @@ Technically it is not open source and no one can use it in their project without
 
 ---
 
-**This library must be built with the esp-idf release/v4.0 branch.**
+**This library was tested with the esp-idf release/v4.3 branch.**
 
-ESP-IDF 4.0 is currently in beta and instructions are found [here](
-https://docs.espressif.com/projects/esp-idf/en/v4.0-beta1/get-started/index.html)
+ESP-IDF 4.3 on PlatformIO
+
 ---
 
 #### Features
@@ -432,12 +432,14 @@ Send color buffer time: 228 us (240 pixels)
 ESP32-WROVER-KIT v3, ST7789V controller, 240x320
 ![Tested on](https://raw.githubusercontent.com/loboris/MicroPython_ESP32_psRAM_LoBo/master/Documents/disp_wrower-kit.jpg)
 
-2.4" 240x320 ILI9341 conroller with Touch panel from eBay
+2.4" 240x320 ILI9341 controller with Touch panel from eBay
 ![Tested on](https://raw.githubusercontent.com/loboris/MicroPython_ESP32_psRAM_LoBo/master/Documents/disp_ili9341.jpg)
 
 3.5" 320x480 ILI9844 controller with Touch panel from BuyDisplay
 ![Tested on](https://raw.githubusercontent.com/loboris/MicroPython_ESP32_psRAM_LoBo/master/Documents/disp_9488.jpg)
 
-1.8" 128x160 ST7735 conroller from eBay
+1.8" 128x160 ST7735 controller from eBay
 ![Tested on](https://raw.githubusercontent.com/loboris/MicroPython_ESP32_psRAM_LoBo/master/Documents/disp_7735.jpg)
 
+1.14" 135x240 ST7789 controller from AliExpress
+![Tested on](https://raw.githubusercontent.com/Xinyuan-LilyGO/TTGO-T-Display/master/image/SD.jpg)
